@@ -1,8 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>Verificação de segurança</title>
 
@@ -13,48 +15,70 @@
       padding: 0;
     }
 
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+    }
+
     body {
       min-height: 100vh;
-      padding: 20px;
+      min-height: 100dvh;
+
+      padding: 12px;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
       font-family: Arial, Helvetica, sans-serif;
-      color: #172554;
 
       background:
-        radial-gradient(circle at 5% 10%, rgba(139,92,246,.30), transparent 28%),
-        radial-gradient(circle at 95% 15%, rgba(96,165,250,.28), transparent 28%),
-        radial-gradient(circle at 10% 90%, rgba(56,189,248,.25), transparent 25%),
-        radial-gradient(circle at 95% 90%, rgba(244,114,182,.25), transparent 28%),
-        linear-gradient(135deg, #eef2ff, #f8fafc 50%, #f5f3ff);
+        radial-gradient(
+          circle at 0% 0%,
+          rgba(139, 92, 246, .28),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 100% 100%,
+          rgba(244, 114, 182, .25),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #eef2ff,
+          #f8fafc 50%,
+          #f5f3ff
+        );
+
+      color: #172554;
     }
+
+    /* CARD PRINCIPAL */
 
     .captcha {
       width: 100%;
-      max-width: 650px;
+      max-width: 420px;
 
-      padding: 38px;
+      padding: 24px 17px 19px;
 
-      background: rgba(255,255,255,.94);
+      background: rgba(255,255,255,.96);
 
-      border: 1px solid rgba(255,255,255,.9);
+      border: 1px solid rgba(255,255,255,.95);
 
-      border-radius: 30px;
+      border-radius: 25px;
 
       box-shadow:
-        0 35px 80px rgba(76,29,149,.16),
-        0 10px 30px rgba(15,23,42,.07);
+        0 25px 60px rgba(76,29,149,.15),
+        0 8px 25px rgba(15,23,42,.07);
 
-      animation: aparecer .55s ease;
+      animation: aparecer .5s ease;
     }
 
     @keyframes aparecer {
       from {
         opacity: 0;
-        transform: translateY(20px) scale(.97);
+        transform: translateY(18px) scale(.98);
       }
 
       to {
@@ -68,14 +92,14 @@
     .header {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 13px;
 
-      margin-bottom: 28px;
+      margin-bottom: 21px;
     }
 
     .shield {
-      width: 74px;
-      height: 74px;
+      width: 58px;
+      height: 58px;
 
       flex-shrink: 0;
 
@@ -83,7 +107,7 @@
       align-items: center;
       justify-content: center;
 
-      border-radius: 22px;
+      border-radius: 17px;
 
       background:
         linear-gradient(
@@ -95,37 +119,41 @@
 
       color: white;
 
-      font-size: 38px;
+      font-size: 30px;
       font-weight: bold;
 
       box-shadow:
-        0 15px 35px rgba(79,70,229,.30);
+        0 12px 28px rgba(79,70,229,.28);
     }
 
     h1 {
-      font-size: 27px;
-      line-height: 1.15;
+      font-size: 20px;
+      line-height: 1.2;
+
       color: #172554;
     }
 
     .subtitle {
-      margin-top: 7px;
+      margin-top: 5px;
 
       color: #64748b;
 
-      font-size: 15px;
+      font-size: 12px;
+      line-height: 1.35;
     }
 
     /* INSTRUÇÃO */
 
     .instruction {
-      padding: 17px 20px;
+      width: 100%;
 
-      margin-bottom: 18px;
+      padding: 14px 10px;
+
+      margin-bottom: 14px;
 
       text-align: center;
 
-      border-radius: 15px;
+      border-radius: 14px;
 
       background:
         linear-gradient(
@@ -134,11 +162,12 @@
           #f5f3ff
         );
 
+      border: 1px solid #e0e7ff;
+
       color: #172554;
 
-      font-size: 16px;
-
-      border: 1px solid #e0e7ff;
+      font-size: 14px;
+      font-weight: 600;
     }
 
     .target-symbol {
@@ -147,14 +176,12 @@
       align-items: center;
       justify-content: center;
 
-      width: 32px;
-      height: 32px;
+      width: 29px;
+      height: 29px;
 
-      margin-left: 5px;
+      margin-left: 4px;
 
-      border-radius: 9px;
-
-      color: #ffffff;
+      border-radius: 8px;
 
       background:
         linear-gradient(
@@ -163,7 +190,9 @@
           #7c3aed
         );
 
-      font-size: 21px;
+      color: white;
+
+      font-size: 19px;
 
       vertical-align: middle;
 
@@ -171,25 +200,30 @@
         0 5px 12px rgba(99,102,241,.25);
     }
 
-    /* GRADE */
+    /* GRADE MOBILE */
 
     .grid {
       display: grid;
 
       grid-template-columns:
-        repeat(3, 1fr);
+        repeat(3, minmax(0, 1fr));
 
-      gap: 14px;
+      gap: 9px;
+
+      width: 100%;
     }
 
     .item {
       position: relative;
 
-      height: 125px;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+
+      min-height: 0;
 
       border: 2px solid #e5e7eb;
 
-      border-radius: 20px;
+      border-radius: 16px;
 
       cursor: pointer;
 
@@ -197,33 +231,33 @@
       align-items: center;
       justify-content: center;
 
-      font-size: 58px;
-
       background: #ffffff;
 
+      font-size: clamp(42px, 14vw, 58px);
+
+      line-height: 1;
+
+      -webkit-tap-highlight-color: transparent;
+
       transition:
-        transform .2s ease,
-        border-color .2s ease,
-        box-shadow .2s ease;
+        transform .16s ease,
+        border-color .16s ease,
+        box-shadow .16s ease,
+        background .16s ease;
     }
 
-    .item:hover {
-      transform: translateY(-4px);
-
-      border-color: #a5b4fc;
-
-      box-shadow:
-        0 12px 25px rgba(15,23,42,.10);
+    .item:active {
+      transform: scale(.94);
     }
 
     .item.selected {
-      transform: translateY(-3px);
-
       border-color: #6366f1;
 
+      background: #eef2ff;
+
       box-shadow:
-        inset 0 0 0 3px #6366f1,
-        0 12px 25px rgba(99,102,241,.18);
+        inset 0 0 0 2px #6366f1,
+        0 8px 18px rgba(99,102,241,.18);
     }
 
     .item.selected::after {
@@ -231,11 +265,11 @@
 
       position: absolute;
 
-      top: 9px;
-      right: 9px;
+      top: 6px;
+      right: 6px;
 
-      width: 27px;
-      height: 27px;
+      width: 25px;
+      height: 25px;
 
       display: flex;
       align-items: center;
@@ -247,53 +281,53 @@
 
       color: white;
 
-      font-size: 16px;
+      font-size: 14px;
       font-weight: bold;
 
       box-shadow:
-        0 4px 10px rgba(79,70,229,.25);
+        0 3px 8px rgba(79,70,229,.25);
     }
 
-    /* CORES DOS SÍMBOLOS */
+    /* CORES */
 
     .star {
       color: #fbbf24;
-      text-shadow: 0 5px 10px rgba(251,191,36,.30);
+      text-shadow: 0 5px 12px rgba(251,191,36,.30);
     }
 
     .heart {
       color: #f43f5e;
-      text-shadow: 0 5px 10px rgba(244,63,94,.25);
+      text-shadow: 0 5px 12px rgba(244,63,94,.25);
     }
 
     .diamond {
       color: #3b82f6;
-      text-shadow: 0 5px 10px rgba(59,130,246,.25);
+      text-shadow: 0 5px 12px rgba(59,130,246,.25);
     }
 
     .clover {
       color: #22c55e;
-      text-shadow: 0 5px 10px rgba(34,197,94,.25);
+      text-shadow: 0 5px 12px rgba(34,197,94,.25);
     }
 
     .moon {
       color: #8b5cf6;
-      text-shadow: 0 5px 10px rgba(139,92,246,.25);
+      text-shadow: 0 5px 12px rgba(139,92,246,.25);
     }
 
     .lightning {
       color: #f97316;
-      text-shadow: 0 5px 10px rgba(249,115,22,.25);
+      text-shadow: 0 5px 12px rgba(249,115,22,.25);
     }
 
     .flower {
       color: #ec4899;
-      text-shadow: 0 5px 10px rgba(236,72,153,.25);
+      text-shadow: 0 5px 12px rgba(236,72,153,.25);
     }
 
     .gem {
       color: #06b6d4;
-      text-shadow: 0 5px 10px rgba(6,182,212,.25);
+      text-shadow: 0 5px 12px rgba(6,182,212,.25);
     }
 
     /* BOTÕES */
@@ -301,21 +335,21 @@
     .controls {
       display: flex;
 
-      gap: 12px;
+      gap: 9px;
 
-      margin-top: 20px;
+      margin-top: 15px;
     }
 
     .verify {
       flex: 1;
 
+      min-height: 52px;
+
       border: 0;
 
-      border-radius: 15px;
+      border-radius: 14px;
 
-      padding: 17px;
-
-      color: white;
+      padding: 14px;
 
       background:
         linear-gradient(
@@ -325,22 +359,17 @@
           #8b5cf6
         );
 
-      font-size: 16px;
+      color: white;
+
+      font-size: 15px;
       font-weight: 700;
 
       cursor: pointer;
 
       box-shadow:
-        0 10px 25px rgba(91,33,246,.25);
+        0 8px 20px rgba(91,33,246,.23);
 
-      transition: .2s;
-    }
-
-    .verify:hover:not(:disabled) {
-      transform: translateY(-3px);
-
-      box-shadow:
-        0 15px 30px rgba(91,33,246,.32);
+      -webkit-tap-highlight-color: transparent;
     }
 
     .verify:disabled {
@@ -352,27 +381,24 @@
     }
 
     .reload {
-      width: 58px;
+      width: 52px;
+      height: 52px;
+
+      flex-shrink: 0;
 
       border: 0;
 
-      border-radius: 15px;
+      border-radius: 14px;
 
       background: #f1f5f9;
 
       color: #475569;
 
-      font-size: 24px;
+      font-size: 22px;
 
       cursor: pointer;
 
-      transition: .2s;
-    }
-
-    .reload:hover {
-      background: #e2e8f0;
-
-      transform: rotate(25deg);
+      -webkit-tap-highlight-color: transparent;
     }
 
     /* MENSAGEM */
@@ -380,13 +406,16 @@
     .message {
       display: none;
 
-      margin-top: 17px;
+      margin-top: 13px;
 
-      padding: 15px;
+      padding: 13px;
 
-      border-radius: 14px;
+      border-radius: 12px;
 
-      font-size: 13px;
+      text-align: center;
+
+      font-size: 12px;
+      line-height: 1.4;
     }
 
     .success {
@@ -412,9 +441,8 @@
     /* RODAPÉ */
 
     .footer {
-      margin-top: 24px;
-
-      padding-top: 18px;
+      margin-top: 17px;
+      padding-top: 14px;
 
       border-top: 1px solid #eef2f7;
 
@@ -422,54 +450,105 @@
 
       color: #94a3b8;
 
-      font-size: 11px;
+      font-size: 9px;
     }
 
-    /* CELULAR */
+    /* TELAS MUITO PEQUENAS */
 
-    @media (max-width: 600px) {
+    @media (max-width: 360px) {
 
       body {
-        padding: 12px;
+        padding: 8px;
       }
 
       .captcha {
-        padding: 25px 18px;
+        padding: 20px 13px 16px;
 
-        border-radius: 24px;
+        border-radius: 21px;
       }
 
       .header {
-        gap: 13px;
+        gap: 10px;
+        margin-bottom: 17px;
       }
 
       .shield {
-        width: 58px;
-        height: 58px;
+        width: 51px;
+        height: 51px;
 
-        border-radius: 17px;
+        border-radius: 15px;
 
-        font-size: 29px;
+        font-size: 26px;
       }
 
       h1 {
-        font-size: 21px;
+        font-size: 18px;
       }
 
       .subtitle {
-        font-size: 12px;
+        font-size: 11px;
       }
 
-      .item {
-        height: 95px;
-
-        border-radius: 16px;
-
-        font-size: 45px;
+      .instruction {
+        font-size: 13px;
+        padding: 12px 7px;
       }
 
       .grid {
-        gap: 9px;
+        gap: 7px;
+      }
+
+      .item {
+        border-radius: 13px;
+
+        font-size: 40px;
+      }
+
+      .item.selected::after {
+        width: 21px;
+        height: 21px;
+
+        top: 4px;
+        right: 4px;
+
+        font-size: 12px;
+      }
+    }
+
+    /* CELULAR EM PAISAGEM */
+
+    @media (max-height: 550px) and (orientation: landscape) {
+
+      .captcha {
+        max-width: 650px;
+
+        padding: 16px 22px;
+      }
+
+      .header {
+        margin-bottom: 12px;
+      }
+
+      .shield {
+        width: 45px;
+        height: 45px;
+      }
+
+      .instruction {
+        margin-bottom: 9px;
+        padding: 9px;
+      }
+
+      .item {
+        aspect-ratio: 1.25 / 1;
+      }
+
+      .controls {
+        margin-top: 10px;
+      }
+
+      .footer {
+        display: none;
       }
     }
   </style>
@@ -479,8 +558,6 @@
 
   <main class="captcha">
 
-    <!-- CABEÇALHO -->
-
     <div class="header">
 
       <div class="shield">
@@ -488,7 +565,6 @@
       </div>
 
       <div>
-
         <h1>
           Verificação de segurança
         </h1>
@@ -496,31 +572,25 @@
         <div class="subtitle">
           Confirme que você é uma pessoa
         </div>
-
       </div>
 
     </div>
 
 
-    <!-- INSTRUÇÃO -->
-
     <div class="instruction">
-
       Selecione todos os símbolos
 
       <span class="target-symbol">
         ★
       </span>
-
     </div>
 
 
-    <!-- SÍMBOLOS -->
+    <div
+      class="grid"
+      id="grid">
+    </div>
 
-    <div class="grid" id="grid"></div>
-
-
-    <!-- CONTROLES -->
 
     <div class="controls">
 
@@ -528,33 +598,25 @@
         class="verify"
         id="verify"
         disabled>
-
-        Verificar
-        &nbsp; →
-      
+        Verificar&nbsp; →
       </button>
 
       <button
         class="reload"
         id="reload"
-        title="Novo desafio">
-
+        type="button"
+        aria-label="Novo desafio">
         ↻
-
       </button>
 
     </div>
 
-
-    <!-- MENSAGEM -->
 
     <div
       class="message"
       id="message">
     </div>
 
-
-    <!-- RODAPÉ -->
 
     <div class="footer">
       Verificação de segurança
@@ -579,11 +641,6 @@
     const message =
       document.getElementById("message");
 
-
-    /*
-      Cada objeto possui:
-      símbolo + classe visual
-    */
 
     const symbols = [
 
@@ -626,6 +683,7 @@
         symbol: "✦",
         className: "gem"
       }
+
     ];
 
 
@@ -650,10 +708,6 @@
       const cells = [];
 
 
-      /*
-        Cria os 9 símbolos.
-      */
-
       for (let i = 0; i < 9; i++) {
 
         const random =
@@ -669,13 +723,9 @@
       }
 
 
-      /*
-        Garante pelo menos
-        dois símbolos ★.
-      */
+      /* Mantém duas estrelas no desafio */
 
       cells[1] = symbols[0];
-
       cells[7] = symbols[0];
 
 
@@ -691,23 +741,17 @@
           );
 
 
-      /*
-        Monta a grade.
-      */
-
       cells.forEach(
         (item, index) => {
 
           const button =
             document.createElement("button");
 
-
           button.type = "button";
 
           button.className =
             "item " +
             item.className;
-
 
           button.textContent =
             item.symbol;
@@ -723,9 +767,7 @@
 
 
               if (
-                selectedPositions.includes(
-                  index
-                )
+                selectedPositions.includes(index)
               ) {
 
                 selectedPositions =
@@ -736,9 +778,7 @@
 
               } else {
 
-                selectedPositions.push(
-                  index
-                );
+                selectedPositions.push(index);
 
               }
 
@@ -758,10 +798,6 @@
     }
 
 
-    /*
-      VERIFICAÇÃO
-    */
-
     verify.addEventListener(
       "click",
       () => {
@@ -772,9 +808,7 @@
 
           selectedPositions.every(
             position =>
-              correctPositions.includes(
-                position
-              )
+              correctPositions.includes(position)
           );
 
 
@@ -799,10 +833,6 @@
 
             });
 
-
-          /*
-            REDIRECIONAMENTO
-          */
 
           setTimeout(() => {
 
@@ -833,19 +863,11 @@
     );
 
 
-    /*
-      NOVO DESAFIO
-    */
-
     reload.addEventListener(
       "click",
       createCaptcha
     );
 
-
-    /*
-      INICIA O CAPTCHA
-    */
 
     createCaptcha();
 
@@ -853,4 +875,4 @@
 
 </body>
 </html>
-```
+
